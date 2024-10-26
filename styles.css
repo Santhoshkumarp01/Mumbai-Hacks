@@ -1,0 +1,413 @@
+/* Base styles */
+body {
+
+    background-color: #000000; 
+    font-family: Arial, sans-serif;
+    color: #ffffff; 
+}
+
+/* Navbar styles */
+.navbar {
+    background-color: #3d3e42; 
+    margin-left: 8px;
+}
+
+.navbar a {
+    color: white; 
+}
+
+.navbar a:hover {
+    color: #3666e0; 
+}
+
+
+section {
+    padding: 60px 0;
+    color: #ffffff;
+}
+
+/* Statistic section */
+.statistic {
+    background-color: rgba(255, 255, 255, 0.1); 
+    padding: 20px;
+    border-radius: 10px;
+    color: #ffffff; 
+    transition: transform 0.3s; 
+}
+
+.statistic:hover {
+    transform: scale(1.05); 
+}
+
+/* Glowing text section */
+.glowing-section {
+    background-color: #000000;
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+}
+
+/* Card styles */
+.card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 1px solid #495057;
+    color: #ffffff; 
+}
+
+/* Button styles */
+.btn-primary {
+    background-color: white;
+    color: black;
+    border: 2px solid #3666e0;
+}
+
+.btn-primary:hover {
+    background-color: #3666e0;
+    color: white;
+}
+
+/* Footer styles */
+footer {
+    position: fixed; /* or 'sticky' if you want it to stay at the bottom without overlapping content */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #000; /* Set to your desired color */
+    color: #fff; /* Text color */
+    text-align: center;
+    padding: 1rem 0; /* Adjust padding as needed */
+    margin: auto;
+    z-index: 1000; /* Keeps it above other elements */
+    box-sizing: border-box;
+}
+
+
+/* Contact form specific styles */
+.contact-form {
+    color: #ffffff;
+}
+
+/* Home section adjustments */
+.home-content h1 {
+    font-size: 3rem;
+    font-weight: bold;
+    color: #ffffff;
+}
+
+.home-content p {
+    font-size: 1.25rem;
+    color: #ffffff;
+}
+#home {
+    position: relative;
+    height: 100vh; 
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #ffffff;
+    text-align: center;
+}
+
+.cover-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw; 
+    height: 100vh; 
+    object-fit: cover; 
+    z-index: -1; 
+}
+
+.home-content {
+    z-index: 1; 
+}
+.carousel-control-prev,
+.carousel-control-next {
+    display: none; 
+}
+/* Fade-in animation for sections */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.section-animate {
+    opacity: 0;
+    animation: fadeIn 1s forwards ease-in-out; 
+}
+
+
+.card {
+    transition: transform 0.5s ease;
+    transform: scale(0.95); /* Smaller scale by default */
+}
+
+.card:hover {
+    transform: scale(1.05); /* Slight scale-up on hover */
+}
+
+/* Glowing Text Animation */
+@keyframes glow-animation {
+    0%, 100% {
+        text-shadow: 0 0 8px #ffffff, 0 0 16px #ffffff;
+    }
+    50% {
+        text-shadow: 0 0 12px #ffffff, 0 0 24px #ffffff;
+    }
+}
+
+/* Updated Glowing Section */
+.glowing-section {
+    background-color: #000000; /* Ensure this path is correct */
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    min-height: 120vh; /* Larger section height */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 40px; /* Additional padding for spacing */
+    position: relative;
+}
+
+/* Glowing text style */
+.glowing-text {
+    max-width: 80%; /* Limit text width */
+    font-size: 2em; /* Maintain readable font size */
+    color: #ffffff;
+    text-shadow: 0 0 10px #ffffff, 0 0 20px #ffffff;
+    animation: glow-animation 1.5s infinite alternate;
+    text-align: center;
+}
+
+/* Optional glow animation */
+@keyframes glow-animation {
+    from {
+        opacity: 0.8;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+
+/* Chatbot Icon */
+.chatbot-icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    background-color: #3666e0;
+    color: #fff;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 24px;
+    cursor: pointer;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+.chatbot-icon:hover {
+    transform: scale(1.1);
+}
+
+/* Chatbot Window */
+.chatbot-window {
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    height: 400px;
+    background-color: #ffffff;
+    border-radius: 10px;
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.3);
+    display: none;
+    flex-direction: column;
+    overflow: hidden;
+    z-index: 1000;
+}
+
+.chatbot-header {
+    background-color: #3666e0;
+    color: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.chatbot-messages {
+    flex: 1;
+    padding: 10px;
+    overflow-y: auto;
+    background-color: #f8f9fa;
+    display: flex;
+    flex-direction: column;
+}
+
+.bot-message, .user-message {
+    max-width: 80%;
+    padding: 8px 12px;
+    margin: 8px 0;
+    border-radius: 10px;
+}
+
+.bot-message {
+    background-color: #e0e7ff;
+    align-self: flex-start;
+}
+
+.user-message {
+    background-color: #3666e0;
+    color: white;
+    align-self: flex-end;
+}
+
+.chatbot-input {
+    display: flex;
+    padding: 10px;
+    background-color: #ffffff;
+    border-top: 1px solid #ddd;
+}
+
+.chatbot-input input[type="text"] {
+    flex: 1;
+    padding: 8px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+.chatbot-input button {
+    background-color: #3666e0;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.chatbot-input button:hover {
+    background-color: #2b52b5;
+}
+
+#about{
+    background-image: "https://images.pexels.com/photos/8965150/pexels-photo-8965150.jpeg?auto=compress&cs=tinysrgb&w=800";
+}
+
+text-center{
+    padding: 50px;
+}
+
+
+
+/* CSS for Chatbot Icon and Window */
+#chatbot-Icon {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    cursor: pointer;
+    z-index: 1000;
+}
+
+.chatbot-window {
+    display: none;
+    position: fixed;
+    bottom: 80px;
+    right: 20px;
+    width: 300px;
+    background-color: #fff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    padding: 20px;
+    z-index: 1000;
+}
+
+#chatbot h3 {
+    margin-top: 0;
+    font-size: 18px;
+    color: #333;
+}
+
+#response {
+    margin-top: 10px;
+    font-size: 14px;
+    color: #666;
+}
+
+#userInput {
+    width: 100%;
+    padding: 10px;
+    margin-top: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#chatbot button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 16px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+}
+#chatbot {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+    display: none;
+    border: 1px solid #ccc;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0,0,0,0.2);
+    padding: 10px;
+    z-index: 1000;
+}
+#chatbotIcon {
+    cursor: pointer;
+    width: 50px;
+    height: 50px;
+    background-color: #4CAF50;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-size: 24px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+}
+#response {
+    margin-top: 10px;
+}
+.option {
+    cursor: pointer;
+    color: blue;
+    text-decoration: underline;
+    margin-top: 5px;
+}

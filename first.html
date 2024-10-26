@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fit Tech-AI</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(to right, #4CAF50, #A2D25E);
+            color: #fff;
+        }
+
+        #chatbot {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 300px;
+            display: none;
+            border: 1px solid #ccc;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0,0,0,0.2);
+            padding: 10px;
+            z-index: 1000;
+        }
+
+        #chatbotIcon {
+            cursor: pointer;
+            width: 60px;
+            height: 60px;
+            background-color: #4CAF50;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-size: 28px;
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+        }
+
+        #response {
+            margin-top: 10px;
+        }
+
+        .option {
+            cursor: pointer;
+            color: blue;
+            text-decoration: underline;
+            margin-top: 5px;
+        }
+
+        .landing-page {
+            text-align: center;
+            padding: 100px 20px;
+        }
+
+        .landing-page h1 {
+            font-size: 3em;
+            margin-bottom: 20px;
+        }
+
+        .landing-page p {
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+
+        .btn-primary {
+            background-color: #28a745;
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: #218838;
+        }
+    </style>
+    <script>
+        function toggleChatbot() {
+            const chatbot = document.getElementById("chatbot");
+            chatbot.style.display = chatbot.style.display === "none" ? "block" : "none";
+        }
+
+        async function handleUserInput() {
+            const userInput = document.getElementById("userInput").value.toLowerCase();
+            const responseDiv = document.getElementById("response");
+            responseDiv.innerHTML = "";  // Clear previous responses
+
+            // Check if user input is "fitness plan"
+            if (userInput.includes("fitness plan")) {
+                window.location.href = '/fit';
+            } 
+            else if (userInput.includes("Mental Health Check")) {
+                window.location.href = '/live mental';
+            } 
+            
+            else {
+                responseDiv.innerHTML = "I'm here to help! Ask me about fitness plans or other health-related questions.";
+            }
+
+            // Clear the input field
+            document.getElementById("userInput").value = "";
+        }
+
+        async function startExercise() {
+            // Make an AJAX request to trigger the run-exercise endpoint
+            const response = await fetch('/run-exercise', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            });
+
+            const data = await response.json();
+            alert(data.message); // Show the result in an alert (you can change this to update the UI)
+        }
+    </script>
+</head>
+<body>
+
+    <div class="landing-page">
+        <h1>Welcome to Fit Tech-AI</h1>
+        <p>Your journey to better health starts here!</p>
+        <button class="btn btn-primary" onclick="document.getElementById('chatbot').style.display='block'">Get Started</button>
+    </div>
+
+    <div id="chatbot">
+        <h3>Chatbot</h3>
+        <input type="text" id="userInput" placeholder="Ask me something..." />
+        <button onclick="handleUserInput()">Send</button>
+        <div id="response"></div>
+    </div>
+    <div id="chatbotIcon" onclick="toggleChatbot()">🤖</div> <!-- Chatbot Icon -->
+
+</body>
+</html>
